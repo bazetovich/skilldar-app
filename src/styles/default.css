@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../assets/fonts/SourceSansPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'SourceSansProSemiBold';
+  src: url('../assets/fonts/SourceSansPro-SemiBold.ttf');
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'SourceSansPro', Helvetica, Arial, serif;
+}
+
+#root {
+  height: 100%;
+}
