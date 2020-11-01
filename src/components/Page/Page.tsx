@@ -23,8 +23,7 @@ const Page: FC<Props> = ({ title, children }) => {
 export default Page;
 
 const Main = styled.main`
-  height: 100%;
-  padding-bottom: 54px;
+  height: calc(100% - 108px);
   box-sizing: border-box;
   background-color: ${colors.mainBackground};
 `;

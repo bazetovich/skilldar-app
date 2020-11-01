@@ -2,15 +2,19 @@ export interface BrowseSkillsState {
   sortOptions: {
     searchString: string;
     location: Locations;
+    page?: number;
   };
-  definition?: string;
-  users: User[];
-  totalPages?: number;
-  currentPage?: number;
+  data: {
+    definition?: string;
+    users: User[];
+    totalPages?: number;
+    relatedSearches: string[];
+  };
   uiState: BrowseSkillsUiStates;
 }
 
 export interface User {
+  id: string;
   name: string;
   avatarUrl?: string;
   descritpion?: string;
@@ -34,4 +38,11 @@ export enum BrowseSkillsUiStates {
   View = 'view',
   Fetching = 'fetching',
   Error = 'error',
+}
+
+export interface UsersResponse {
+  definition: string;
+  users: User[];
+  totalPages: number;
+  relatedSearches: string[];
 }

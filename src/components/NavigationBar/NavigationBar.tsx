@@ -13,29 +13,48 @@ interface Props {
 const NavigationBar: FC<Props> = ({ title }) => {
   return (
     <Header>
-      <LeftWrap>
-        <HashIcon size="1x" color={colors.primaryRed} icon={faHashtag} />
-        <Title>{title}</Title>
-      </LeftWrap>
-      <Icon size="1x" color={colors.gray} icon={faInstagram} />
-      <Icon size="1x" color={colors.gray} icon={faTwitterSquare} />
-      <Icon size="1x" color={colors.gray} icon={faSignInAlt} />
+      <Container>
+        <LinkWrap>
+          <HashIcon size="1x" color={colors.primaryRed} icon={faHashtag} />
+          <Title>{title}</Title>
+        </LinkWrap>
+        <LinkWrap>
+          <InstIcon href="/">
+            <FontAwesomeIcon size="1x" color={colors.gray} icon={faInstagram} />
+          </InstIcon>
+          <TwitterIcon href="/">
+            <FontAwesomeIcon size="1x" color={colors.gray} icon={faTwitterSquare} />
+          </TwitterIcon>
+          <LoginLink href="/">
+            Login
+            <LogInIcon size="1x" color={colors.blue} icon={faSignInAlt} />
+          </LoginLink>
+        </LinkWrap>
+      </Container>
     </Header>
   );
 };
 
 export default NavigationBar;
 
+const Container = styled.div`
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  padding: 0 16px;
+`;
+
 const Header = styled.header`
   height: 50px;
   background-color: ${colors.black};
   border-top: 2px solid #333437;
   border-bottom: 2px solid #333437;
-  display: flex;
-  flex-direction: row;
 `;
 
-const LeftWrap = styled.div`
+const LinkWrap = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -53,6 +72,26 @@ const HashIcon = styled(FontAwesomeIcon)`
   margin-right: 6px;
 `;
 
-const Icon = styled(FontAwesomeIcon)`
+const InstIcon = styled.a`
   font-size: 22px;
+`;
+
+const TwitterIcon = styled.a`
+  font-size: 22px;
+  margin-left: 8px;
+`;
+
+const LogInIcon = styled(FontAwesomeIcon)`
+  font-size: 22px;
+  margin-left: 6px;
+`;
+
+const LoginLink = styled.a`
+  margin-left: 16px;
+  font-family: ${fonts.semiBold};
+  color: ${colors.blue};
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
