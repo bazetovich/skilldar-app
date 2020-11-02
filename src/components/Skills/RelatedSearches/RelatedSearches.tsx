@@ -60,4 +60,5 @@ const HashBtn = styled.button`
   background: none;
   border: none;
   font-size: 12px;
+  cursor: pointer;
 `;

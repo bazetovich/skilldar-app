@@ -4,3 +4,4 @@ export { default as TopSection } from './TopSection/TopSection';
 export { default as UsersSection } from './Users/Users';
 export { default as User } from './User/User';
 export { default as Rating } from './Rating/Rating';
+export { default as SortOptions } from './SortOptions/SortOptions';
