@@ -23,7 +23,7 @@ const SkillsView = () => {
     <Page title="Browse Skills">
       <ContainerStyled>
         <RowStyled>
-          <Visible md lg xl xxl>
+          <Visible lg xl xxl>
             <RealatedSearchCol lg={2}>
               <SkillsComponents.RelatedSearches variant="column" />
             </RealatedSearchCol>
@@ -54,7 +54,7 @@ const RealatedSearchCol = styled(Col)`
 `;
 
 const ContainerStyled = styled(Container)`
-  height: 100%;
+  flex: 1;
 `;
 
 const RowStyled = styled(Row)`

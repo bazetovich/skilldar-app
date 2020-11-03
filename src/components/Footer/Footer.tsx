@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, fonts } from '../../styles/config';
+import { breakPoints, colors, fonts } from '../../styles/config';
 
 const Footer = () => {
   return (
@@ -47,18 +47,30 @@ const TermPrivacyLink = styled.a`
   margin-right: 16px;
   font-family: ${fonts.semiBold};
   color: ${colors.gray};
-  font-size: 18px;
+  font-size: 12px;
+
+  @media (min-width: ${breakPoints.md}) {
+    font-size: 18px;
+  }
 `;
 
 const AboutLink = styled.a`
   margin-right: 16px;
   font-family: ${fonts.semiBold};
   color: ${colors.green};
-  font-size: 18px;
+  font-size: 12px;
+
+  @media (min-width: ${breakPoints.md}) {
+    font-size: 18px;
+  }
 `;
 
 const GetStartedLink = styled.a`
   font-family: ${fonts.semiBold};
   color: ${colors.yellow};
-  font-size: 18px;
+  font-size: 12px;
+
+  @media (min-width: ${breakPoints.md}) {
+    font-size: 18px;
+  }
 `;

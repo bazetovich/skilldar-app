@@ -58,12 +58,13 @@ export default memo(Pagination);
 const Wrap = styled.div`
   display: flex;
   flex-direction: row;
-  padding-bottom: 46px;
+  padding-top: 46px;
+  padding-bottom: 26px;
 `;
 
 const PaginationItem = styled.a`
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1;
   color: ${({ active }: { active: boolean }) => (active ? colors.yellow : colors.gray)};
   font-weight: ${({ active }: { active: boolean }) => (active ? 'bold' : 'normal')};
@@ -72,13 +73,13 @@ const PaginationItem = styled.a`
 `;
 
 const ArrowIconLeft = styled(FontAwesomeIcon)`
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 8px;
   cursor: pointer;
 `;
 
 const ArrowIconRight = styled(FontAwesomeIcon)`
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
 `;
 

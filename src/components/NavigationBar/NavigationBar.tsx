@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHashtag, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 
-import { colors, fonts } from '../../styles/config';
+import { breakPoints, colors, fonts } from '../../styles/config';
 
 interface Props {
   title: string;
@@ -62,9 +62,13 @@ const LinkWrap = styled.div`
 const Title = styled.h1`
   font-family: ${fonts.semiBold};
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   align-items: center;
   color: ${colors.gray};
+
+  @media (min-width: ${breakPoints.sm}) {
+    font-size: 18px;
+  }
 `;
 
 const HashIcon = styled(FontAwesomeIcon)`
@@ -90,8 +94,12 @@ const LoginLink = styled.a`
   margin-left: 16px;
   font-family: ${fonts.semiBold};
   color: ${colors.blue};
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @media (min-width: ${breakPoints.sm}) {
+    font-size: 18px;
+  }
 `;

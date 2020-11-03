@@ -10,7 +10,7 @@ import { Loader, SkillsComponents, Input } from '../..';
 import { SkillsSelectors, SkillsActions, SkillsThunkActions } from '../../../store/store';
 // @ts-ignore
 import logoImg from '../../../assets/images/logo.png';
-import { colors } from '../../../styles/config';
+import { breakPoints, colors } from '../../../styles/config';
 
 const TopSection = () => {
   const dispatch = useDispatch();
@@ -20,15 +20,13 @@ const TopSection = () => {
 
   const handleChange = (val: string) => {
     dispatch(SkillsActions.setSearchString(val));
-
-    if (val.length > 3) {
-      fetchUsers();
-    }
+    fetchUsers();
   };
 
   const fetchUsers = useCallback(
     debounce(
       () => {
+        dispatch(SkillsActions.setCurrentPage(1));
         dispatch(SkillsThunkActions.fetchUsers());
       },
       1000,
@@ -53,16 +51,14 @@ const TopSection = () => {
           iconRight={<SearchIcon size="1x" color={colors.grayLight} icon={faSearch} />}
         />
       </SearchWrap>
-      {isFetching ? (
-        <Loader />
-      ) : (
-        <>
-          {definition && <SkillsComponents.Definition text={definition} />}
-          <Visible xs sm>
-            <SkillsComponents.RelatedSearches variant="row" />
-          </Visible>
-        </>
-      )}
+      <Visible xs sm md>
+        <SkillsComponents.SortOptions openedByDefault={false} sectionHeaderBorderColor="#4e5052" />
+      </Visible>
+      {definition && <SkillsComponents.Definition text={definition} />}
+      <Visible xs sm md>
+        <SkillsComponents.RelatedSearches variant="row" />
+      </Visible>
+      {isFetching && <Loader />}
     </Section>
   );
 };
@@ -76,11 +72,14 @@ const Section = styled.section`
 const SearchWrap = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 26px;
 `;
 
 const Logo = styled.img`
-  width: 216px;
+  width: 130px;
+
+  @media (min-width: ${breakPoints.md}) {
+    width: 216px;
+  }
 `;
 
 const LogoWrap = styled.div`

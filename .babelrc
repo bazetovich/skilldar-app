@@ -1,5 +1,5 @@
 {
-  "presets": ["@babel/react", "@babel/typescript"],
+  "presets": ["@babel/react", "@babel/typescript", "@babel/preset-env"],
   "plugins": [
     [
       "module-resolver",

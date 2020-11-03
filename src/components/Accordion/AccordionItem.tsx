@@ -10,9 +10,10 @@ interface Props {
   title: string;
   children: React.ReactNode;
   openedByDefault?: boolean;
+  headerBorderColor?: string;
 }
 
-const Item: FC<Props> = ({ title, children, openedByDefault = false }) => {
+const Item: FC<Props> = ({ title, children, openedByDefault = false, headerBorderColor = colors.yellow }) => {
   const [opened, toggleOpened] = useState(openedByDefault);
 
   const handleClick = () => {
@@ -21,7 +22,7 @@ const Item: FC<Props> = ({ title, children, openedByDefault = false }) => {
 
   return (
     <>
-      <Header onClick={handleClick}>
+      <Header borderColor={headerBorderColor} onClick={handleClick}>
         <Title>{title}</Title>
         {opened ? (
           <ChevronIcon size="1x" color={colors.white} icon={faChevronUp} />
@@ -29,7 +30,7 @@ const Item: FC<Props> = ({ title, children, openedByDefault = false }) => {
           <ChevronIcon size="1x" color={colors.white} icon={faChevronDown} />
         )}
       </Header>
-      <ContentWrap animate={{ height: opened ? 'auto' : 0 }}>
+      <ContentWrap initial={{ height: 0 }} animate={{ height: opened ? 'auto' : 0 }}>
         <ContentInner>{children}</ContentInner>
       </ContentWrap>
     </>
@@ -44,7 +45,8 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px 8px 8px;
-  border: 2px solid ${colors.yellow};
+  border: 2px solid;
+  border-color: ${({ borderColor }: { borderColor: string }) => borderColor};
   border-radius: 5px;
   cursor: pointer;
 `;

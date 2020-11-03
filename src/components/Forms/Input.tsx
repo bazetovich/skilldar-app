@@ -35,13 +35,13 @@ const Wrap = styled.div`
   padding: 15px 15px;
   background-color: #3b3d3f;
   align-items: center;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: 3px 3px 0px 0px rgba(26, 27, 28, 1);
   flex: ${({ grow }: StyleProps) => (grow ? 1 : undefined)};
 `;
 
 const InputStyled = styled.input`
-  flex: 1;
+  width: 100%;
   outline: none;
   background: none;
   border: none;

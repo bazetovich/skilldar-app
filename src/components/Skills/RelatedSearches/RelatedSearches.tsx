@@ -13,16 +13,16 @@ interface Props {
 const RelatedSearches: FC<Props> = ({ variant }) => {
   const dispatch = useDispatch();
   const items = useSelector(SkillsSelectors.selectRelatedSearches);
-  const isFetching = useSelector(SkillsSelectors.selectIsFetching);
 
   const makeClickHandler = (val: string) => {
     return () => {
+      dispatch(SkillsActions.setCurrentPage(1));
       dispatch(SkillsActions.setSearchString(val));
       dispatch(SkillsThunkActions.fetchUsers());
     };
   };
 
-  if (isFetching) {
+  if (!items.length) {
     return null;
   }
 
@@ -33,7 +33,7 @@ const RelatedSearches: FC<Props> = ({ variant }) => {
       </Header3>
       <BtnWrap variant={variant}>
         {items.map((val: string) => (
-          <HashBtn key={val} onClick={makeClickHandler(val)}>{`#${val}`}</HashBtn>
+          <HashBtn variant={variant} key={val} onClick={makeClickHandler(val)}>{`#${val}`}</HashBtn>
         ))}
       </BtnWrap>
     </Wrap>
@@ -45,20 +45,26 @@ export default RelatedSearches;
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 14px;
   align-items: ${({ variant }: Props) => (variant === 'row' ? 'flex-start' : 'center')};
 `;
 
 const BtnWrap = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: ${({ variant }: Props) => (variant === 'row' ? 'row' : 'column')};
 `;
 
 const HashBtn = styled.button`
   margin-top: 0;
   margin-bottom: 10px;
+  margin-right: ${({ variant }: Props) => (variant === 'row' ? '12px' : 0)};
   color: ${colors.darkRed};
   background: none;
   border: none;
+  outline: none;
   font-size: 12px;
   cursor: pointer;
+  padding: ${({ variant }: Props) => (variant === 'row' ? 0 : '0 8px')};
+  padding: ${({ variant }: Props) => (variant === 'row' ? 0 : '0 8px')};
 `;

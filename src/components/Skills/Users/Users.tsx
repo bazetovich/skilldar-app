@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { SkillsComponents } from '../..';
 import { SkillsSelectors } from '../../../store/store';
+import { breakPoints } from '../../../styles/config';
 
 const Users = () => {
   const items = useSelector(SkillsSelectors.selectUsers);
@@ -25,5 +26,9 @@ const Users = () => {
 export default Users;
 
 const Section = styled.section`
-  padding-top: 26px;
+  padding-top: 16px;
+
+  @media (min-width: ${breakPoints.lg}) {
+    padding-top: 26px;
+  }
 `;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import styled from 'styled-components';
-import { colors } from '../../../styles/config';
+import { breakPoints, colors } from '../../../styles/config';
 import { Header3 } from '../../../styles/styles';
 
 interface Props {
@@ -22,9 +22,14 @@ const Definition: FC<Props> = ({ text }) => {
 export default Definition;
 
 const Wrap = styled.div`
-  border-radius: 3px;
+  border-radius: 4px;
   border: 1px solid #393a3c;
-  padding: 0px 30px 10px 30px;
+  padding: 0px 14px 10px 14px;
+  margin-top: 26px;
+
+  @media (min-width: ${breakPoints.md}) {
+    padding: 0px 30px 10px 30px;
+  }
 `;
 
 const Title = styled(Header3)`

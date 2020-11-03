@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Accordion } from '../..';
@@ -27,7 +27,12 @@ const locationOptions = [
   },
 ];
 
-const SortOptions = () => {
+interface Props {
+  openedByDefault?: boolean;
+  sectionHeaderBorderColor?: string;
+}
+
+const SortOptions: FC<Props> = ({ openedByDefault = true, sectionHeaderBorderColor }) => {
   const dispatch = useDispatch();
   const location = useSelector(SkillsSelectors.selectLocation);
 
@@ -41,11 +46,11 @@ const SortOptions = () => {
 
   return (
     <Wrap>
-      <Header3 marginBottom="18px" marginTop="0px">
+      <Header3 marginBottom="8px" marginTop="0px">
         SORT RESULTS
       </Header3>
       <Accordion>
-        <Accordion.Item openedByDefault title="Location">
+        <Accordion.Item headerBorderColor={sectionHeaderBorderColor} openedByDefault={openedByDefault} title="Location">
           {locationOptions.map(({ label, value }) => (
             <CheckBox key={value} onClick={makeChangeOptionHandler(value)} checked={location === value} label={label} />
           ))}
@@ -57,4 +62,6 @@ const SortOptions = () => {
 
 export default SortOptions;
 
-const Wrap = styled.div``;
+const Wrap = styled.div`
+  padding-top: 26px;
+`;
