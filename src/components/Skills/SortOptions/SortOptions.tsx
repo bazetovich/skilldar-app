@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+
 import { Accordion } from '../..';
 import { SkillsActions, SkillsSelectors, SkillsThunkActions } from '../../../store/store';
 import { Locations } from '../../../store/views/Skills/types';
-
 import { Header3 } from '../../../styles/styles';
 import CheckBox from '../../Forms/CheckBox';
 

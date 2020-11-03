@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { breakPoints, colors, fonts } from '../../styles/config';
 
 const Footer = () => {

@@ -1,4 +1,5 @@
 import { AnyAction } from 'redux';
+
 import { BrowseSkillsUiStates, Locations, UsersResponse } from './types';
 
 export enum ActionTypes {

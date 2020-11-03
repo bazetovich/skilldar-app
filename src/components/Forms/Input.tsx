@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+
 import { fonts } from '../../styles/config';
 
 type Props = JSX.IntrinsicElements['input'] & {

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-
 import styled from 'styled-components';
+
 import { breakPoints, colors } from '../../../styles/config';
 import { Header3 } from '../../../styles/styles';
 

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { colors } from '../../styles/config';
 
+import { colors } from '../../styles/config';
 import Footer from '../Footer/Footer';
 import NavigationBar from '../NavigationBar/NavigationBar';
 
